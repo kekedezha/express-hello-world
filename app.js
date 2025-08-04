@@ -4,6 +4,9 @@ const port = process.env.PORT || 3001;
 
 app.get("/", (req, res) => res.type('html').send(html));
 
+// Health route that serves as a health endpoint for Render to check status of path
+app.get("/health", (req, res) => res.sendStatus(200));
+
 const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 server.keepAliveTimeout = 120 * 1000;
